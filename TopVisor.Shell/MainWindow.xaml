@@ -1,0 +1,22 @@
+﻿<Window x:Class="TopVisor.Shell.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="150" Width="600" 
+        >
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="TestAPI" Grid.Column="0" Content="Test API" Click="TestAPI_Click"/>
+        <Button x:Name="TestAPILoader" Grid.Column="1" Content="Test API Loader" Click="TestAPILoader_Click" />
+        <Button x:Name="TestXMLLoader" Grid.Column="2" Content="Test XML Loader" Click="TestXMLLoader_Click" />
+        <Button x:Name="TestSynchronization" Grid.Column="3" Content="Test Synchronization" Click="TestSynchronization_Click" />
+    </Grid>
+</Window>

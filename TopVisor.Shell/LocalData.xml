@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Projects>
+  <Project id="123" name="Test1" site="it-agency.ru">
+    <Phrases>
+      <Phrase id="1234" phrase="asdf"/>
+      <Phrase id="1235" phrase="zxcv"/>
+      <Phrase id="1236" phrase="qwer"/>
+    </Phrases>
+  </Project>
+  <Project id="124" name="Test2" site="microsoft.com">
+    <Phrases>
+      <Phrase id="1244" phrase="fdsa"/>
+      <Phrase id="1245" phrase="vcxz"/>
+      <Phrase id="1246" phrase="rewq"/>
+    </Phrases>
+  </Project>
+  <Project id="125" name="Test3" site="google.ru">
+    <Phrases>
+      <Phrase id="1254" phrase="asdfghjkl"/>
+      <Phrase id="1255" phrase="zxcvbnm"/>
+      <Phrase id="1256" phrase="qwertyuiop"/>
+    </Phrases>
+  </Project>
+</Projects>

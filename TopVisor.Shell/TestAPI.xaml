@@ -1,0 +1,153 @@
+﻿<Window x:Class="TopVisor.Shell.TestAPI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="TestAPI"       
+        Height="350" Width="800" 
+        d:DataContext="{d:DesignData MainViewModel}">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Height="50" Content="Get Projects"
+                        Grid.Column="0"
+                        Command="{Binding Path=GetProjects}" />
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button Height="25" Content="Add Project"
+                            Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                            Command="{Binding Path=AddProject}" />
+                    <TextBox Grid.Row="1" Grid.Column="0"
+                             Text="{Binding Path=NewProjectName}" />
+                    <TextBox Grid.Row="1" Grid.Column="1"
+                             Text="{Binding Path=NewProjectSite}" />
+                </Grid>
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button Height="25" Content="Edit Project"
+                            Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                            Command="{Binding Path=EditProject}" />
+                    <TextBox Grid.Row="1" Grid.Column="0"
+                             Text="{Binding Path=SelectedProject.name}" />
+                    <TextBox Grid.Row="1" Grid.Column="1"
+                             Text="{Binding Path=SelectedProject.site}" />
+                </Grid>
+                <Button Height="50" Content="Delete Project"
+                        Grid.Column="3"
+                        Command="{Binding Path=DeleteProject}" />
+
+            </Grid>
+
+            <DataGrid Grid.Row="1"
+                      ItemsSource="{Binding Path=Projects}"
+                      SelectedItem="{Binding Path=SelectedProject}"
+                      AutoGenerateColumns="False"
+                      CanUserDeleteRows="False" CanUserAddRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=id}" Header="id"/>
+                    <DataGridTextColumn Binding="{Binding Path=name}" Header="name" />
+                    <DataGridTextColumn Binding="{Binding Path=site}" Header="site" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Height="50" Content="Get Phrases"
+                        Grid.Column="0"
+                        Command="{Binding Path=GetPhrases}" />
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Button Height="25" Content="Add Phrase"
+                            Grid.Row="0" 
+                            Command="{Binding Path=AddPhrase}" />
+                    <TextBox Grid.Row="1" Grid.Column="0"
+                             Text="{Binding Path=NewPhrase}" />
+                </Grid>
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Button Height="25" Content="Edit Phrase"
+                            Grid.Row="0" 
+                            Command="{Binding Path=EditPhrase}" />
+                    <TextBox Grid.Row="1" 
+                             Text="{Binding Path=SelectedPhrase.phrase}" />
+                </Grid>
+                <Button Height="50" Content="Delete Phrase"
+                        Grid.Column="3"
+                        Command="{Binding Path=DeletePhrase}" />
+            </Grid>
+
+            <DataGrid Grid.Row="1"
+                      ItemsSource="{Binding Path=Phrases}"
+                      SelectedItem="{Binding Path=SelectedPhrase}"
+                      AutoGenerateColumns="False"
+                      CanUserDeleteRows="False" CanUserAddRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=phrase}" Header="phrase" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+        </Grid>
+        <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                 Height="100"
+                 Foreground="Red"
+                 TextWrapping="Wrap"
+                 Text="{Binding Path=ErrorMessage, Mode=OneWay}"
+                 Visibility="{Binding Path=HasError, Converter={StaticResource BooleanToVisibilityConverter}}" />
+    </Grid>
+</Window>

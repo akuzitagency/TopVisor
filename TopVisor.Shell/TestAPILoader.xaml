@@ -1,0 +1,51 @@
+﻿<Window x:Class="TopVisor.Shell.TestAPILoader"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TopVisor.Shell"
+        mc:Ignorable="d"
+        Title="TestAPILoader" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="Load"
+                Grid.Row="0"
+                Content="Load" Click="Load_Click" />
+        <ItemsControl x:Name="ItemsView"
+                      Grid.Row="1"
+                      ItemsSource="{Binding Path=Projects}" d:DataContext="{d:DesignData TopVisorData}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0">
+                            <Run Text="Проект: "/>
+                            <Run Text="{Binding Path=Name}"/>
+                            <Run Text=" ("/>
+                            <Run Text="{Binding Path=Site}"/>
+                            <Run Text=")"/>
+                        </TextBlock>
+                        <ItemsControl Grid.Row="1"
+                                      Margin ="30,0,0,0"
+                                      ItemsSource="{Binding Path=Phrases}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <TextBlock Text="{Binding Path=Text}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            
+        </ItemsControl>
+    </Grid>
+</Window>
