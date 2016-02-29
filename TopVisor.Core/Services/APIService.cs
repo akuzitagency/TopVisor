@@ -9,12 +9,18 @@ using TopVisor.Core.Utils;
 
 namespace TopVisor.Core.Services
 {
-    public class APIService
+    public static class APIService
     {
         public static async Task<List<ProjectDTO>> GetProjects()
         {
             var result = await APICall<List<ProjectDTO>> (APIOperations.Get, APIModules.Projects);
             return result;
+        }
+
+        public static async Task<ProjectDTO> GetProject(UInt32 projectId)
+        {
+            var result = await APICall<List<ProjectDTO>>(APIOperations.Get, APIModules.Projects, null, "{\"id\":" + projectId + "}");
+            return result[0];
         }
 
         public static async Task<EditResultDTO> AddProject(String name, String site)

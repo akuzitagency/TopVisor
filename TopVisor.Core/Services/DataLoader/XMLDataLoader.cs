@@ -32,6 +32,7 @@ namespace TopVisor.Core.Services.DataLoader
                 .Root?
                 .Elements("Project")
                 .FirstOrDefault(e => e.Attribute("id").Value == projectId.ToString())?
+                .Element("Phrases")?
                 .Elements("Phrase")
                 .Select(phrase => new Phrase(UInt32.Parse(phrase.Attribute("id").Value), phrase.Attribute("phrase").Value))
                 .ToList()

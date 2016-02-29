@@ -13,8 +13,8 @@ namespace TopVisor.Core.Services
 
         public async Task Synchronize()
         {
-            if(SourceData==null) throw new Exception("Нет источника");
-            if(DestData==null) throw new Exception("Нет получателя");
+            if (SourceData == null) throw new Exception("Нет источника");
+            if (DestData == null) throw new Exception("Нет получателя");
 
             await DeleteExcessProjects();
             await UpdateExistingProjects();
@@ -36,20 +36,17 @@ namespace TopVisor.Core.Services
             foreach (var project in projectsToAdd)
             {
                 var apiCallResult = await APIService.AddProject(project.Name, project.Site);
-                UInt32 newProjectId ;
-                if (UInt32.TryParse(apiCallResult.result.ToString(), out newProjectId))
-                {
-                    await SynchronizePhrases(newProjectId, project.Phrases, new List<Phrase>());
-                }
+                if(!apiCallResult.result.HasValue) throw new Exception("Не удалось добавить проект " + project.Name);
+                await SynchronizePhrases(apiCallResult.result.Value, project.Phrases, new List<Phrase>());
             }
         }
 
         private async Task UpdateExistingProjects()
         {
-            var projectPairs = 
+            var projectPairs =
                 from sourceProject in SourceData.Projects
                 join destProject in DestData.Projects
-                on sourceProject.Name equals destProject.Name
+                    on sourceProject.Name equals destProject.Name
                 select new {SourceProject = sourceProject, DestProject = destProject};
 
             foreach (var pair in projectPairs)

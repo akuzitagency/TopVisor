@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopVisor.Shell", "TopVisor.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopVisor.Core", "TopVisor.Core\TopVisor.Core.csproj", "{9FFCD9F1-59E3-4787-8A68-B399F535F95A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopVisor.Core.Tests", "TopVisor.Core.Tests\TopVisor.Core.Tests.csproj", "{6E0EE05C-0D42-42DF-B4BA-00BFCB8F640D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,12 +23,16 @@ Global
 		{9FFCD9F1-59E3-4787-8A68-B399F535F95A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FFCD9F1-59E3-4787-8A68-B399F535F95A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FFCD9F1-59E3-4787-8A68-B399F535F95A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E0EE05C-0D42-42DF-B4BA-00BFCB8F640D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E0EE05C-0D42-42DF-B4BA-00BFCB8F640D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E0EE05C-0D42-42DF-B4BA-00BFCB8F640D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E0EE05C-0D42-42DF-B4BA-00BFCB8F640D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
+		SccNumberOfProjects = 4
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://aakuznetsov.visualstudio.com/defaultcollection
 		SccLocalPath0 = .
@@ -36,5 +42,8 @@ Global
 		SccProjectUniqueName2 = TopVisor.Shell\\TopVisor.Shell.csproj
 		SccProjectName2 = TopVisor.Shell
 		SccLocalPath2 = TopVisor.Shell
+		SccProjectUniqueName3 = TopVisor.Core.Tests\\TopVisor.Core.Tests.csproj
+		SccProjectName3 = TopVisor.Core.Tests
+		SccLocalPath3 = TopVisor.Core.Tests
 	EndGlobalSection
 EndGlobal
