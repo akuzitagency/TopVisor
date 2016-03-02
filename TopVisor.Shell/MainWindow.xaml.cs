@@ -36,7 +36,7 @@ namespace TopVisor.Shell
         {
             try
             {
-                var sourceDataLoader = new XMLDataLoader();
+                var sourceDataLoader = new XMLDataLoader("LocalData.xml");
                 await sourceDataLoader.LoadAll();
                 var destDataLoader = new APIDataLoader();
                 await destDataLoader.LoadAll();

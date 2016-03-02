@@ -29,7 +29,7 @@ namespace TopVisor.Shell
         {
             ItemsView.DataContext = null;
 
-            var loader = new XMLDataLoader();
+            var loader = new XMLDataLoader("LocalData.xml");
             await loader.LoadAll();
             var data = loader.Data;
 

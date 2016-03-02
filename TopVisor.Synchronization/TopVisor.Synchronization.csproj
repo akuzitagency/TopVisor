@@ -4,19 +4,21 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9FFCD9F1-59E3-4787-8A68-B399F535F95A}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{C7983AFA-0472-4634-B8DE-787E4ECDA2C8}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TopVisor.Core</RootNamespace>
-    <AssemblyName>TopVisor.Core</AssemblyName>
+    <RootNamespace>TopVisor.Synchronization</RootNamespace>
+    <AssemblyName>TopVisor.Synchronization</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -26,6 +28,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,10 +45,6 @@
       <HintPath>..\packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -56,30 +55,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\DTO\APIModules.cs" />
-    <Compile Include="Model\DTO\ErrorDTO.cs" />
-    <Compile Include="Model\DTO\PhraseDTO.cs" />
-    <Compile Include="Model\DTO\ProjectDTO.cs" />
-    <Compile Include="Model\Phrase.cs" />
-    <Compile Include="Model\Project.cs" />
-    <Compile Include="Model\TopVisorData.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Model\DTO\APIOperations.cs" />
-    <Compile Include="Services\DataLoader\APIDataLoader.cs" />
-    <Compile Include="Services\APIService.cs" />
-    <Compile Include="Model\DTO\EditResultDTO.cs" />
-    <Compile Include="Services\DataLoader\DataLoaderBase.cs" />
-    <Compile Include="Services\DataLoader\IDataLoader.cs" />
-    <Compile Include="Services\DataLoader\XMLDataLoader.cs" />
-    <Compile Include="Services\LogService.cs" />
-    <Compile Include="Services\SynchronizationService.cs" />
-    <Compile Include="Utils\JsonHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TopVisor.Core\TopVisor.Core.csproj">
+      <Project>{9ffcd9f1-59e3-4787-8a68-b399f535f95a}</Project>
+      <Name>TopVisor.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\TopVisor.Shell\LocalData.xml">
+      <Link>LocalData.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -57,12 +57,16 @@
     <Compile Include="APITests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SynchronizationTests.cs" />
+    <Compile Include="TestlDataLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TopVisor.Core\TopVisor.Core.csproj">
       <Project>{9ffcd9f1-59e3-4787-8a68-b399f535f95a}</Project>
       <Name>TopVisor.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

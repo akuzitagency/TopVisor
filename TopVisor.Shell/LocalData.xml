@@ -2,9 +2,27 @@
 <Projects>
   <Project id="123" name="Test1" site="it-agency.ru">
     <Phrases>
-      <Phrase id="1234" phrase="asdf"/>
-      <Phrase id="1235" phrase="zxcv"/>
-      <Phrase id="1236" phrase="qwer"/>
+      <Phrase id="1234" phrase="asdf1"/>
+      <Phrase id="1235" phrase="zxcv2"/>
+      <Phrase id="1236" phrase="qwer3"/>
+      <Phrase id="1234" phrase="asdf4"/>
+      <Phrase id="1235" phrase="zxcv5"/>
+      <Phrase id="1236" phrase="qwer6"/>
+      <Phrase id="1234" phrase="asdf7"/>
+      <Phrase id="1235" phrase="zxcv8"/>
+      <Phrase id="1236" phrase="qwer9"/>
+      <Phrase id="1234" phrase="asdf10"/>
+      <Phrase id="1235" phrase="zxcv11"/>
+      <Phrase id="1236" phrase="qwer12"/>
+      <Phrase id="1234" phrase="asdf13"/>
+      <Phrase id="1235" phrase="zxcv14"/>
+      <Phrase id="1236" phrase="qwer15"/>
+      <Phrase id="1234" phrase="asdf16"/>
+      <Phrase id="1235" phrase="zxcv17"/>
+      <Phrase id="1236" phrase="qwer18"/>
+      <Phrase id="1234" phrase="asdf19"/>
+      <Phrase id="1235" phrase="zxcv20"/>
+      <Phrase id="1236" phrase="qwer21"/>
     </Phrases>
   </Project>
   <Project id="124" name="Test2" site="microsoft.com">

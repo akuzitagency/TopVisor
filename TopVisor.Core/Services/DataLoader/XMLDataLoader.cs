@@ -9,16 +9,22 @@ namespace TopVisor.Core.Services.DataLoader
 {
     public class XMLDataLoader : DataLoaderBase
     {
-        private readonly XDocument _xDoc;
-        private const String DataFilePath = "LocalData.xml";
-        public XMLDataLoader()
+        private readonly string _dataFileName;
+        private XDocument _xDoc;
+
+        public XDocument XDoc
         {
-            _xDoc = XDocument.Load(DataFilePath);
+            get { return _xDoc =_xDoc ?? (_xDoc= XDocument.Load(_dataFileName)); }
         }
 
-        public async override Task<List<Project>> LoadProjects()
+        public XMLDataLoader(String dataFileName)
         {
-            return _xDoc
+            _dataFileName = dataFileName;
+        }
+
+        public override async Task<List<Project>> LoadProjects()
+        {
+            return XDoc
                 .Root?
                 .Elements("Project")
                 .Select(project => new Project(UInt32.Parse(project.Attribute("id").Value), project.Attribute("name").Value, project.Attribute("site").Value))
@@ -26,9 +32,9 @@ namespace TopVisor.Core.Services.DataLoader
                    ?? new List<Project>();
         }
 
-        public async override Task<List<Phrase>> LoadPhrases(uint projectId)
+        public override async Task<List<Phrase>> LoadPhrases(uint projectId)
         {
-            return _xDoc
+            return XDoc
                 .Root?
                 .Elements("Project")
                 .FirstOrDefault(e => e.Attribute("id").Value == projectId.ToString())?
@@ -39,9 +45,9 @@ namespace TopVisor.Core.Services.DataLoader
                    ?? new List<Phrase>();
         }
 
-        public async override Task<List<Phrase>> LoadPhrases(string projectName)
+        public override async Task<List<Phrase>> LoadPhrases(string projectName)
         {
-            return _xDoc
+            return XDoc
                 .Root?
                 .Elements("Project")
                 .FirstOrDefault(e => e.Attribute("name").Value == projectName)?
